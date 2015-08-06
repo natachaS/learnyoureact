@@ -2,13 +2,13 @@ var React = require('react');
 
 var TodoBox = React.createClass({
   render: function() {
-    return (
-      <div className="todoBox">
-        <h1>Todos</h1>
-        <TodoList data = {this.props.data} />
-        <TodoForm />
-      </div>
-    );
+      return (
+        <div className="todoBox">
+          <h1>Todos</h1>
+    <TodoList data = {this.props.data} />
+    <TodoForm />
+        </div>
+      );
   }
 });
 
@@ -19,26 +19,25 @@ var TodoList = React.createClass({
       <div className = "todoList">
         <table style={{border: "2px solid black"}}>
           <tbody>
-            {todo}
+            {todo}    
           </tbody>
         </table>
-      </div>
+      </div>    
     );
   }
 });
 
 var Todo = React.createClass({
   propTypes: {
-    title: React.PropTypes.string.isRequired   
+    title: React.PropTypes.string.isRequired     
   },
-  getInitialState: function(){
+  getInitialState: function() {
     return {
-      checked : false
+      checked: false
     };
   },
-
-  handleChange: function(){
-
+  handleChange: function(e) {
+    this.setState({checked: e.target.checked});
   },
   render: function() {
     return (
@@ -63,9 +62,8 @@ var TodoForm = React.createClass({
 
 var style = {
   tableContent: {
-    border: "1px solid black"
+    border: "1px solid black"           
   }
 };
 
 module.exports = TodoBox;
-
